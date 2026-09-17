@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>veronica zhang — art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <aside class="receipt" aria-label="Store receipt navigation">
+        <img
+          class="receipt__outline"
+          src="assets/RECEIPT/receipt-outline.svg"
+          alt=""
+          width="435"
+          height="1076"
+        />
+        <div class="receipt__body">
+          <h1 class="receipt__brand">
+            <a href="index.html">Veronica Zhang</a>
+          </h1>
+          <p class="receipt__location">Pittsburgh, PA</p>
+
+          <hr class="receipt__rule" />
+
+          <div class="receipt__date-row">
+            <span>Date</span>
+            <span class="receipt__date-value" id="receipt-date-value"
+              >September 15, 2026</span
+            >
+          </div>
+
+          <hr class="receipt__rule" />
+
+          <nav aria-label="Primary">
+            <ul class="receipt__items">
+              <li class="receipt__item">
+                <a href="about.html"
+                  ><span>About</span><span class="receipt__price">5.24</span></a
+                >
+              </li>
+              <li class="receipt__item is-active">
+                <a href="art.html" aria-current="page"
+                  ><span>Art</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="bread.html"
+                  ><span>Bread</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="postcards.html"
+                  ><span>Postcards</span><span class="receipt__price">4.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="projects.html"
+                  ><span>Projects</span><span class="receipt__price">20.26</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="receipt__footer">
+            <hr class="receipt__rule" />
+            <p class="receipt__summary-label">Item count</p>
+            <p class="receipt__summary-label">Total</p>
+            <img
+              class="receipt__barcode"
+              src="assets/ART/barcode.svg"
+              alt=""
+              width="232"
+              height="110"
+            />
+            <p class="receipt__thanks">Thank you • come again</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="stage stage--art" aria-label="Art gallery">
+        <div class="art-gallery">
+          <ul class="art-gallery__grid">
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View Peppa Kitty">
+                <img
+                  src="assets/ART/art-peppa.jpg"
+                  alt="Peppa Kitty — painting on textured canvas"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-peppa-kitty.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View Veevatopia">
+                <img
+                  src="assets/ART/art-veevatopia.jpg"
+                  alt="Veevatopia — portrait surrounded by marine life"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-veevatopia.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View Rice Bun">
+                <img
+                  src="assets/ART/art-rice-bunny.jpg"
+                  alt="Rice Bun — rice bunny sculpture on a black pedestal"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-rice-bun.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View So Many Moles">
+                <img
+                  src="assets/ART/art-dian.jpg"
+                  alt="So Many Moles — collage of overlapping portraits"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-so-many-moles.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View Yú">
+                <img
+                  src="assets/ART/art-paper-fish.jpg"
+                  alt="Yú — paper fish sculpture hanging in a locker"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-yu.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View American Dream">
+                <img
+                  src="assets/ART/art-nyc-dream.jpg"
+                  alt="American Dream — window ledge with plants overlooking a hazy city"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-american-dream.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View Commission: Carlos">
+                <img
+                  src="assets/ART/art-pokemon.jpg"
+                  alt="Commission: Carlos — graduation portrait with Mew and Jirachi"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-carlos.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View SMEG Study">
+                <img
+                  src="assets/ART/art-smeg.jpg"
+                  alt="SMEG Study — illustration of a blue SMEG coffee maker"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-smeg.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+            <li class="art-gallery__cell">
+              <button type="button" class="art-gallery__open" aria-label="View Andy Warhol">
+                <img
+                  src="assets/ART/art-marilyn.jpg"
+                  alt="Andy Warhol — pop-art Marilyn Monroe style portrait grid"
+                  width="800"
+                  height="800"
+                />
+              </button>
+              <img
+                class="art-gallery__tag"
+                src="assets/ART/art-tag-andy-warhol.png"
+                alt=""
+                width="727"
+                height="409"
+              />
+            </li>
+          </ul>
+
+          <img
+            class="art-gallery__sticker art-gallery__sticker--2f25"
+            src="assets/ART/art-sticker-2for25.png"
+            alt=""
+            width="350"
+            height="210"
+            aria-hidden="true"
+          />
+          <img
+            class="art-gallery__sticker art-gallery__sticker--sale"
+            src="assets/ART/art-sticker-sale.png"
+            alt=""
+            width="321"
+            height="241"
+            aria-hidden="true"
+          />
+          <img
+            class="art-gallery__sticker art-gallery__sticker--star"
+            src="assets/ART/art-sticker-99.png"
+            alt=""
+            width="466"
+            height="340"
+            aria-hidden="true"
+          />
+        </div>
+      </main>
+    </div>
+
+    <div
+      class="art-lightbox"
+      data-art-lightbox
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Artwork preview"
+    >
+      <button type="button" class="art-lightbox__close" aria-label="Close preview">
+        Close
+      </button>
+      <img class="art-lightbox__img" alt="" />
+    </div>
+
+    <script src="js/receipt.js"></script>
+    <script src="js/art-lightbox.js"></script>
+  </body>
+</html>

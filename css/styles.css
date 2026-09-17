@@ -1,0 +1,1142 @@
+@font-face {
+  font-family: "Fake Receipt";
+  src: url("../assets/RECEIPT/fonts/FakeReceipt.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #000000;
+  --ink-faint: #555555;
+  --page: #ffffff;
+  --placeholder: #d9d9d9;
+  --link-hover: #333333;
+  --receipt-width: min(17.5rem, 26vw);
+  --receipt-pad-x: 1.35rem;
+  --receipt-pad-top: 1.65rem;
+  --font-receipt: "Fake Receipt", "Courier New", Courier, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-receipt);
+  color: var(--ink);
+  background: var(--page);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: var(--receipt-width) 1fr;
+  min-height: 100vh;
+  align-items: start;
+  gap: 0;
+  background: var(--page);
+}
+
+.page--home {
+  min-height: 100vh;
+}
+
+/* —— Receipt (Figma Draft 2) —— */
+.receipt {
+  position: relative;
+  z-index: 3;
+  width: var(--receipt-width);
+  margin: 1.15rem 0 1.15rem 1.15rem;
+  isolation: isolate;
+  background: url("../assets/RECEIPT/receipt-texture.jpg") center / cover no-repeat;
+  -webkit-mask-image: url("../assets/RECEIPT/receipt-mask.svg");
+  mask-image: url("../assets/RECEIPT/receipt-mask.svg");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  animation: receipt-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.receipt__outline {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  object-fit: fill;
+  opacity: 0; /* shape comes from mask; texture is the visible paper */
+}
+
+.receipt__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--receipt-pad-top) var(--receipt-pad-x) 2rem;
+  color: var(--ink);
+}
+
+@keyframes receipt-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.85rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.receipt__brand {
+  margin: 2rem 0 0;
+  font-size: clamp(0.95rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.receipt__brand a:hover,
+.receipt__brand a:focus-visible {
+  color: var(--link-hover);
+  outline: none;
+}
+
+.receipt__location {
+  margin: 0.55rem 0 3rem;
+  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.receipt__rule {
+  margin: 0;
+  border: 0;
+  height: 0;
+  border-top: 1.5px dashed var(--ink);
+  width: 100%;
+}
+
+.receipt__date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.receipt__date-row .receipt__date-value {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.receipt__items {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.receipt__item {
+  margin: 0;
+}
+
+.receipt__item a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  font-size: clamp(0.78rem, 1.05vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.receipt__item a:hover,
+.receipt__item a:focus-visible {
+  opacity: 0.65;
+  transform: translateX(2px);
+  outline: none;
+}
+
+.receipt__item.is-active a {
+  font-weight: 600;
+}
+
+.receipt__price {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.receipt__footer {
+  margin-top: var(--receipt-pad-top);
+}
+
+.receipt__footer .receipt__rule {
+  margin-bottom: 0.65rem;
+}
+
+.receipt__summary-label {
+  margin: 0 0 0.35rem;
+  font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.receipt__barcode {
+  display: block;
+  width: 68%;
+  max-width: 12rem;
+  height: auto;
+  margin: 0.85rem auto 0.55rem;
+  aspect-ratio: 232 / 110;
+  object-fit: contain;
+}
+
+.receipt__thanks {
+  margin: 0 0 2rem;
+  text-align: center;
+  font-size: clamp(0.55rem, 0.7vw, 0.7rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* —— HOME: RIGHT-SIDE TABLE (Receipt 5 layout) —— */
+.table {
+  /* Shared scale in rem — keeps Figma width ratios without % explosion */
+  --item-unit: 0.4rem;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  animation: shelf-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+@keyframes shelf-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.table__item {
+  position: absolute;
+  display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  z-index: 1;
+  transform-origin: center center;
+}
+
+.table__item:hover,
+.table__item:focus-visible {
+  outline: none;
+  z-index: 3;
+}
+
+.table__item > img:not(.table__tag),
+.table__doodle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.table__doodle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transition: transform 0.25s ease;
+}
+
+/* Grocery shelf tag — appears on hover to hint the destination */
+.table__tag {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  display: block;
+  width: min(5rem, 72%);
+  height: auto;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  object-fit: contain;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(0.88);
+  transform-origin: center center;
+  transition: opacity 0.22s ease, transform 0.25s ease;
+  filter: drop-shadow(2px 3px 5px rgba(0, 0, 0, 0.2));
+}
+
+.table__item:hover .table__tag,
+.table__item:focus-visible .table__tag {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+/* Tomato — top right (Figma 280×255) */
+.table__item--about {
+  right: 13%;
+  top: 5.5%;
+  width: calc(100 * var(--item-unit));
+  max-width: 17%;
+  aspect-ratio: 280 / 255;
+}
+
+.table__item--about:hover .table__doodle,
+.table__item--about:focus-visible .table__doodle {
+  transform: rotate(15deg) scale(1.03);
+}
+
+/* Projects list — bottom right (Figma 311×383) */
+.table__item--projects {
+  right: 7%;
+  top: 40.5%;
+  width: calc(311 * var(--item-unit));
+  max-width: 25%;
+  aspect-ratio: 311 / 383;
+  z-index: 2;
+}
+
+.table__item--projects .table__doodle {
+  transform: rotate(-5deg);
+}
+
+.table__item--projects:hover .table__doodle,
+.table__item--projects:focus-visible .table__doodle {
+  transform: rotate(-10deg) scale(1.03);
+}
+
+/* Sardine tin — bottom left (Figma 350×218) */
+.table__item--postcards {
+  left: 11%;
+  top: 70.5%;
+  width: calc(350 * var(--item-unit));
+  max-width: 20%;
+  aspect-ratio: 350 / 218;
+  z-index: 2;
+}
+
+.table__item--postcards .table__doodle {
+  transform: rotate(21.37deg);
+}
+
+.table__item--postcards:hover .table__doodle,
+.table__item--postcards:focus-visible .table__doodle {
+  transform: rotate(0deg) scale(1.03);
+}
+
+/* Palette — center (Figma 687×499) */
+.table__item--art {
+  left: 25%;
+  top: 17%;
+  width: calc(687 * var(--item-unit));
+  max-width: 45%;
+  aspect-ratio: 687 / 499;
+  z-index: 1;
+}
+
+.table__item--art .table__doodle {
+  transform: rotate(-0.9deg);
+}
+
+.table__item--art:hover .table__doodle,
+.table__item--art:focus-visible .table__doodle {
+  transform: rotate(-0.9deg) scale(1.06);
+}
+
+/* Baguette — top left (Figma 491×229) */
+.table__item--bread {
+  left: -4%;
+  top: 15.5%;
+  width: calc(491 * var(--item-unit));
+  max-width: 45%;
+  aspect-ratio: 491 / 229;
+  z-index: 2;
+}
+
+.table__item--bread .table__doodle {
+  transform: rotate(80deg);
+}
+
+.table__item--bread:hover .table__doodle,
+.table__item--bread:focus-visible .table__doodle {
+  transform: rotate(50deg) scale(1.03);
+}
+
+/* —— Inner pages —— */
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+}
+
+.stage--blank {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.blank-card h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.blank-card p {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+/* —— ART: GALLERY —— */
+.stage--art {
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 0.5rem);
+}
+
+.art-gallery {
+  position: relative;
+  width: min(100%, 90rem);
+  animation: art-gallery-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes art-gallery-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.art-gallery__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.85rem, 2.2vw, 1.35rem);
+}
+
+.art-gallery__cell {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: visible;
+  background: var(--placeholder);
+  animation: art-cell-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.art-gallery__cell:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.art-gallery__cell:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.art-gallery__cell:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.art-gallery__cell:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.art-gallery__cell:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.art-gallery__cell:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.art-gallery__cell:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.art-gallery__cell:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.art-gallery__cell:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+@keyframes art-cell-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.art-gallery__open img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+
+.art-gallery__open {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.art-gallery__open:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.art-gallery__tag {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+  display: block;
+  width: min(10rem, 72%);
+  height: auto;
+  max-height: none;
+  opacity: 0;
+  pointer-events: none;
+  object-fit: contain;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(0.88);
+  transform-origin: center center;
+  transition: opacity 0.22s ease, transform 0.25s ease;
+  filter: drop-shadow(2px 3px 5px rgba(0, 0, 0, 0.2));
+}
+
+.art-gallery__cell:hover .art-gallery__tag,
+.art-gallery__cell:focus-within .art-gallery__tag {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.art-gallery__cell:hover,
+.art-gallery__cell:focus-within {
+  z-index: 1;
+}
+
+.art-gallery__cell:nth-child(2) .art-gallery__open img {
+  object-position: center 35%;
+}
+
+.art-gallery__cell:nth-child(5) .art-gallery__open img {
+  object-position: center 20%;
+}
+
+.art-gallery__cell:nth-child(7) .art-gallery__open img {
+  object-position: center 22%;
+}
+
+.art-gallery__cell:nth-child(8) .art-gallery__open img {
+  object-position: center 45%;
+}
+
+.art-gallery__cell:hover .art-gallery__open img,
+.art-gallery__cell:focus-within .art-gallery__open img {
+  transform: scale(1.04);
+}
+
+/* —— ART: lightbox —— */
+body.is-lightbox-open {
+  overflow: hidden;
+}
+
+.art-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  background: rgba(0, 0, 0, 0.72);
+  cursor: zoom-out;
+  animation: art-lightbox-in 0.25s ease both;
+}
+
+.art-lightbox[hidden] {
+  display: none;
+}
+
+@keyframes art-lightbox-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.art-lightbox__img {
+  display: block;
+  max-width: min(92vw, 1100px);
+  max-height: min(88vh, 900px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: default;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  animation: art-lightbox-img-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes art-lightbox-img-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.art-lightbox__close {
+  position: absolute;
+  top: max(0.75rem, env(safe-area-inset-top, 0px));
+  right: max(0.75rem, env(safe-area-inset-right, 0px));
+  z-index: 1;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-family: var(--font-receipt);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.art-lightbox__close:hover,
+.art-lightbox__close:focus-visible {
+  background: rgba(0, 0, 0, 0.7);
+  outline: none;
+}
+
+.art-gallery__sticker {
+  position: absolute;
+  z-index: 2;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.12));
+}
+
+.art-gallery__sticker--2f25 {
+  left: 9%;
+  top: 28%;
+  width: clamp(13rem, 18%, 8.5rem);
+  transform: rotate(-12deg);
+}
+
+.art-gallery__sticker--sale {
+  right: 1%;
+  top:-1%;
+  width: clamp(10rem, 16%, 7.5rem);
+}
+
+.art-gallery__sticker--star {
+  left: 55%;
+  top: 54%;
+  width: clamp(15rem, 17%, 8rem);
+}
+
+@media (max-width: 900px) {
+  .stage--art,
+  .stage--bread {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .art-gallery {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .art-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .art-gallery__sticker--2f25 {
+    left: 6%;
+    top: 20%;
+    width: 28%;
+  }
+
+  .art-gallery__sticker--star {
+    left: 48%;
+    top: 18%;
+    width: 26%;
+  }
+}
+
+@media (max-width: 900px) {
+  .page,
+  .page--home {
+    grid-template-columns: 1fr;
+  }
+
+  .receipt {
+    margin: 1rem auto 0;
+    width: min(18rem, 92vw);
+  }
+
+  .stage--about {
+    min-height: 70vh;
+  }
+
+  .table {
+    --item-unit: 0.032rem;
+    min-height: 70vh;
+    margin-top: 0.5rem;
+  }
+
+  .table__item--about {
+    left: 6.5%;
+    top: 10.5%;
+    max-width: 22%;
+  }
+
+  .table__item--projects {
+    left: 68%;
+    top: 58.5%;
+    max-width: 20%;
+  }
+
+  .table__item--postcards {
+    left: 8%;
+    top: 64.5%;
+    max-width: 26%;
+  }
+
+  .table__item--art {
+    left: 18%;
+    top: 24.5%;
+    max-width: 42%;
+  }
+
+  .table__item--bread {
+    left: 62%;
+    top: 2.5%;
+    max-width: 32%;
+  }
+
+  .stage {
+    min-height: auto;
+    padding: 1.75rem 1.25rem 2.5rem;
+  }
+}
+
+/* —— ABOUT: FRIDGE THEME —— */
+.page--about {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: url("../assets/ABOUT/about-fridge-background.png") center / cover
+    no-repeat;
+  background-color: #8a9096;
+}
+
+.stage--about {
+  --fridge-pad: clamp(0.5rem, 1.5vmin, 1.25rem);
+  --fridge-ratio: 1728 / 1117;
+  justify-content: center;
+  align-items: center;
+  padding: var(--fridge-pad);
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Scale the whole artboard to fit the content column; keep items relative */
+.fridge {
+  position: relative;
+  flex: 0 1 auto;
+  container-type: size;
+  width: min(
+    100%,
+    1728px,
+    calc((100dvh - 2 * var(--fridge-pad)) * 1728 / 1117)
+  );
+  aspect-ratio: var(--fridge-ratio);
+  height: auto;
+  max-height: calc(100dvh - 2 * var(--fridge-pad));
+}
+
+.fridge__polaroid {
+  position: absolute;
+  left: 4%;
+  top: 12%;
+  width: 30.9%;
+  aspect-ratio: 846 / 1024;
+  z-index: 2;
+}
+
+.fridge__polaroid-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-6.06deg);
+  transform-origin: center center;
+  filter: drop-shadow(4px 8px 18px rgba(0, 0, 0, 0.18));
+}
+
+.fridge__polaroid:hover,
+.fridge__polaroid:focus-visible {
+  transform: rotate(5deg) scale(1.03);
+  filter: brightness(0.95);
+  outline: none;
+  transform-origin: center center;
+}
+
+.fridge__magnet {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.fridge__magnet img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.2));
+}
+
+.fridge__magnet:hover,
+.fridge__magnet:focus-visible {
+  transform: scale(1.06);
+  filter: brightness(0.95);
+  outline: none;
+  z-index: 4;
+}
+
+.fridge__magnet--email {
+  left: 37.6%;
+  top: 10.3%;
+  width: 8.3%;
+  aspect-ratio: 156 / 184;
+}
+
+.fridge__magnet--spotify {
+  left: 47.8%;
+  top: 24.6%;
+  width: 7%;
+  aspect-ratio: 134 / 131;
+}
+
+.fridge__magnet--instagram {
+  left: 40.4%;
+  top: 40.1%;
+  width: 7.1%;
+  aspect-ratio: 123 / 118;
+}
+
+.fridge__magnet--github {
+  left: 47.8%;
+  top: 57%;
+  width: 7%;
+  aspect-ratio: 135 / 134;
+}
+
+.fridge__magnet--resume {
+  left: 23.1%;
+  top: 73.8%;
+  width: 30.4%;
+  aspect-ratio: 548 / 188;
+}
+
+.fridge__magnet--resume:hover,
+.fridge__magnet--resume:focus-visible {
+  transform: scale(1.04);
+}
+
+.fridge__whiteboard {
+  position: absolute;
+  left: 58.9%;
+  top: 3%;
+  width: 38.1%;
+  aspect-ratio: 618 / 756;
+  z-index: 2;
+}
+
+.fridge__whiteboard-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(4px 8px 20px rgba(0, 0, 0, 0.16));
+}
+
+.fridge__whiteboard-board {
+  position: absolute;
+  inset: 12% 11% 11%;
+  padding: 4% 5%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.fridge__whiteboard-text {
+  margin: 0;
+  font-family: "Nanum Pen Script", "Segoe Print", cursive;
+  font-size: clamp(0.95rem, 4.2cqmin, 2rem);
+  line-height: 1.35;
+  color: #f5f7ff;
+}
+
+/* Photo pile — tucked under the whiteboard; only the peeking edges are hoverable */
+.fridge__photos {
+  position: absolute;
+  left: 56%;
+  top: 40%;
+  width: 42%;
+  height: 58%;
+  pointer-events: none;
+}
+
+.fridge__photo {
+  position: absolute;
+  width: 76%;
+  aspect-ratio: 1024 / 768;
+  padding: 0;
+  margin: 0;
+  border: 1.5px solid #000;
+  background: #111;
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+  box-shadow: 3px 6px 14px rgba(0, 0, 0, 0.18);
+  /*transition:*/
+  /*  transform 0.28s ease,*/
+  /*  box-shadow 0.28s ease,*/
+  /*  filter 0.28s ease;*/
+  z-index: 1;
+}
+
+.fridge__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Fan positions: 0 = front of pile (still behind whiteboard), 2 = back */
+.fridge__photo[data-stack="0"] {
+  left: 14%;
+  top: 18%;
+  transform: rotate(7deg);
+}
+
+.fridge__photo[data-stack="1"] {
+  left: 2%;
+  top: 26%;
+  transform: rotate(-6deg);
+}
+
+.fridge__photo[data-stack="2"] {
+  left: 20%;
+  top: 34%;
+  transform: rotate(13deg);
+}
+
+.fridge__photo.is-lifted {
+  z-index: 5;
+  transform: rotate(-2deg) scale(1.06);
+  box-shadow: 8px 16px 28px rgba(0, 0, 0, 0.28);
+  filter: brightness(1.02);
+}
+
+.fridge__photo:focus-visible {
+  outline: 2px solid #1a3cff;
+  outline-offset: 3px;
+}
+
+/* —— BREAD: BAKERY BOARD —— */
+.page--bread {
+  background: #3a2818
+    url("../assets/BREAD/bread-wood-background.jpg") center / cover no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.stage--bread {
+  --bakery-pad: clamp(0.5rem, 1.5vmin, 1.25rem);
+  --bakery-ratio: 998 / 645;
+  justify-content: center;
+  align-items: center;
+  padding: var(--bakery-pad);
+  overflow: hidden;
+  background: transparent;
+}
+
+.bakery {
+  position: relative;
+  flex: 0 1 auto;
+  width: min(100%, 1440px, calc((100dvh - 2 * var(--bakery-pad)) * 998 / 645));
+  aspect-ratio: var(--bakery-ratio);
+  height: auto;
+  max-height: calc(100dvh - 2 * var(--bakery-pad));
+  animation: bakery-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bakery-in {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bakery__item {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 10px rgba(20, 10, 0, 0.22));
+  transition: filter 0.28s ease;
+  /* Opacity-only entrance — animating transform with fill-mode:both
+     would lock transform and block hover scale. */
+  animation: bakery-item-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bakery__doodle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform-origin: center center;
+  transition: transform 0.28s ease;
+}
+
+.bakery__item:hover,
+.bakery__item:focus-visible {
+  filter: drop-shadow(4px 8px 16px rgba(20, 10, 0, 0.3)) brightness(1.03);
+  outline: none;
+  z-index: 2;
+}
+
+.bakery__item:hover .bakery__doodle,
+.bakery__item:focus-visible .bakery__doodle {
+  transform: scale(1.09);
+}
+
+/* Grocery shelf tag — appears on hover (same pattern as homepage) */
+.bakery__tag {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  display: block;
+  width: min(7.5rem, 78%);
+  height: auto;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  object-fit: contain;
+  transform: translate(-50%, -50%) rotate(5deg) scale(0.88);
+  transform-origin: center center;
+  transition: opacity 0.22s ease, transform 0.25s ease;
+  filter: drop-shadow(2px 3px 5px rgba(0, 0, 0, 0.28));
+}
+
+.bakery__item:hover .bakery__tag,
+.bakery__item:focus-visible .bakery__tag {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(5deg) scale(1);
+}
+
+@keyframes bakery-item-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Positions measured from Figma Top 1 screenshot (board-relative) */
+.bakery__item--potpie {
+  left: 5.83%;
+  top: 13.18%;
+  width: 27.15%;
+  height: 39.69%;
+  animation-delay: 0.05s;
+}
+
+.bakery__item--bolobao {
+  left: 38.2%;
+  top: 8.85%;
+  width: 40.26%;
+  height: 40.01%;
+  animation-delay: 0.12s;
+}
+
+.bakery__item--babka {
+  left: .33%;
+  top: 58.26%;
+  width: 27.35%;
+  height: 25.89%;
+  animation-delay: 0.18s;
+}
+
+.bakery__item--appletart {
+  left: 45.4%;
+  top: 52%;
+  width: 32.57%;
+  height: 37.98%;
+  animation-delay: 0.24s;
+}
+
+@media (max-width: 700px) {
+  .bakery {
+    width: min(100%, calc((100dvh - 2 * var(--bakery-pad)) * 998 / 645));
+  }
+}

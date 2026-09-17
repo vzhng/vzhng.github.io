@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>veronica zhang — bread</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page page--bread">
+      <aside class="receipt" aria-label="Store receipt navigation">
+        <img
+          class="receipt__outline"
+          src="assets/RECEIPT/receipt-outline.svg"
+          alt=""
+          width="435"
+          height="1076"
+        />
+        <div class="receipt__body">
+          <h1 class="receipt__brand">
+            <a href="index.html">Veronica Zhang</a>
+          </h1>
+          <p class="receipt__location">Pittsburgh, PA</p>
+
+          <hr class="receipt__rule" />
+
+          <div class="receipt__date-row">
+            <span>Date</span>
+            <span class="receipt__date-value" id="receipt-date-value"
+              >September 15, 2026</span
+            >
+          </div>
+
+          <hr class="receipt__rule" />
+
+          <nav aria-label="Primary">
+            <ul class="receipt__items">
+              <li class="receipt__item">
+                <a href="about.html"
+                  ><span>About</span><span class="receipt__price">5.24</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="art.html"
+                  ><span>Art</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item is-active">
+                <a href="bread.html" aria-current="page"
+                  ><span>Bread</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="postcards.html"
+                  ><span>Postcards</span><span class="receipt__price">4.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="projects.html"
+                  ><span>Projects</span><span class="receipt__price">20.26</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="receipt__footer">
+            <hr class="receipt__rule" />
+            <p class="receipt__summary-label">Item count</p>
+            <p class="receipt__summary-label">Total</p>
+            <img
+              class="receipt__barcode"
+              src="assets/RECEIPT/barcode.svg"
+              alt=""
+              width="232"
+              height="110"
+            />
+            <p class="receipt__thanks">Thank you • come again</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="stage stage--bread" aria-label="Bread — bakery board">
+        <div class="bakery">
+          <a
+            class="bakery__item bakery__item--potpie"
+            href="https://www.instagram.com/p/Dbn0-yhDof2/?img_index=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Korean pot pie on Instagram"
+          >
+            <img
+              class="bakery__doodle"
+              src="assets/BREAD/bread-potpie.svg"
+              alt=""
+              width="1122"
+              height="1062"
+            />
+            <img
+              class="bakery__tag"
+              src="assets/BREAD/bread-tag-potpie.png"
+              alt=""
+              width="735"
+              height="417"
+            />
+          </a>
+          <a
+            class="bakery__item bakery__item--bolobao"
+            href="https://www.instagram.com/p/DU3kpdeCWtb/?img_index=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Red bean bō luó bāo on Instagram"
+          >
+            <img
+              class="bakery__doodle"
+              src="assets/BREAD/bread-bolobao.svg"
+              alt=""
+              width="1536"
+              height="1110"
+            />
+            <img
+              class="bakery__tag"
+              src="assets/BREAD/bread-tag-bolobao.png"
+              alt=""
+              width="735"
+              height="417"
+            />
+          </a>
+          <a
+            class="bakery__item bakery__item--babka"
+            href="https://www.instagram.com/p/DYNCHHnDoYN/?img_index=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chocolate tahini babka on Instagram"
+          >
+            <img
+              class="bakery__doodle"
+              src="assets/BREAD/bread-babka.svg"
+              alt=""
+              width="1118"
+              height="698"
+            />
+            <img
+              class="bakery__tag"
+              src="assets/BREAD/bread-tag-babka.png"
+              alt=""
+              width="735"
+              height="417"
+            />
+          </a>
+          <a
+            class="bakery__item bakery__item--appletart"
+            href="https://www.instagram.com/p/DRcZu6lDn_F/?img_index=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple cider galette on Instagram"
+          >
+            <img
+              class="bakery__doodle"
+              src="assets/BREAD/bread-appletart.svg"
+              alt=""
+              width="1166"
+              height="1006"
+            />
+            <img
+              class="bakery__tag"
+              src="assets/BREAD/bread-tag-appletart.png"
+              alt=""
+              width="735"
+              height="417"
+            />
+          </a>
+        </div>
+      </main>
+    </div>
+    <script src="js/receipt.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="231.667" height="142" viewBox="0 0 231.667 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Bar Code">
+<mask id="mask0_0_9" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="230" height="142">
+<g id="Vector">
+<path d="M0 0H8.88889V137H0V0Z" fill="#D9D9D9"/>
+<path d="M144.444 3H153.333V140H144.444V3Z" fill="#D9D9D9"/>
+<path d="M163.333 3H166.667V140H163.333V3Z" fill="#D9D9D9"/>
+<path d="M172.222 3H175.556V140H172.222V3Z" fill="#D9D9D9"/>
+<path d="M181.111 3H184.444V140H181.111V3Z" fill="#D9D9D9"/>
+<path d="M190 3H193.333V140H190V3Z" fill="#D9D9D9"/>
+<path d="M14.4444 3H17.7778V140H14.4444V3Z" fill="#D9D9D9"/>
+<path d="M27.7778 3H36.6667V140H27.7778V3Z" fill="#D9D9D9"/>
+<path d="M51.1111 3H53.3333V140H51.1111V3Z" fill="#D9D9D9"/>
+<path d="M67.7778 5H70V142H67.7778V5Z" fill="#D9D9D9"/>
+<path d="M58.8889 3H61.1111V140H58.8889V3Z" fill="#D9D9D9"/>
+<path d="M80 3H93.3333V140H80V3Z" fill="#D9D9D9"/>
+<path d="M100 3H107.778V140H100V3Z" fill="#D9D9D9"/>
+<path d="M117.778 3H125.556V140H117.778V3Z" fill="#D9D9D9"/>
+<path d="M222.222 3H230V140H222.222V3Z" fill="#D9D9D9"/>
+<path d="M196.667 3H200V140H196.667V3Z" fill="#D9D9D9"/>
+<path d="M35 0H43.8889V137H35V0Z" fill="#D9D9D9"/>
+<path d="M179.444 3H188.333V140H179.444V3Z" fill="#D9D9D9"/>
+<path d="M198.333 3H201.667V140H198.333V3Z" fill="#D9D9D9"/>
+<path d="M207.222 3H210.556V140H207.222V3Z" fill="#D9D9D9"/>
+<path d="M216.111 3H219.444V140H216.111V3Z" fill="#D9D9D9"/>
+<path d="M225 3H228.333V140H225V3Z" fill="#D9D9D9"/>
+<path d="M49.4444 3H52.7778V140H49.4444V3Z" fill="#D9D9D9"/>
+<path d="M62.7778 3H71.6667V140H62.7778V3Z" fill="#D9D9D9"/>
+<path d="M86.1111 3H88.3333V140H86.1111V3Z" fill="#D9D9D9"/>
+<path d="M102.778 5H105V142H102.778V5Z" fill="#D9D9D9"/>
+<path d="M93.8889 3H96.1111V140H93.8889V3Z" fill="#D9D9D9"/>
+<path d="M115 3H128.333V140H115V3Z" fill="#D9D9D9"/>
+<path d="M135 3H142.778V140H135V3Z" fill="#D9D9D9"/>
+<path d="M152.778 3H160.556V140H152.778V3Z" fill="#D9D9D9"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_9)">
+<rect id="Rectangle 1" y="13" width="231" height="107" fill="#3A3A3A"/>
+</g>
+</g>
+</svg>

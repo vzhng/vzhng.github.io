@@ -3,65 +3,211 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Veronica Zhang — Portfolio</title>
-    <style>
-      :root {
-        --bg: #f6f3ee;
-        --ink: #1c1917;
-        --muted: #57534e;
-        --accent: #0f766e;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 2rem;
-        font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-        color: var(--ink);
-        background:
-          radial-gradient(ellipse 80% 60% at 20% 10%, rgba(15, 118, 110, 0.12), transparent 55%),
-          radial-gradient(ellipse 70% 50% at 90% 80%, rgba(120, 113, 108, 0.15), transparent 50%),
-          var(--bg);
-      }
-
-      main {
-        max-width: 36rem;
-        text-align: center;
-      }
-
-      h1 {
-        margin: 0 0 0.75rem;
-        font-size: clamp(2.25rem, 6vw, 3.5rem);
-        font-weight: 600;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-      }
-
-      p {
-        margin: 0;
-        font-size: 1.125rem;
-        line-height: 1.55;
-        color: var(--muted);
-      }
-
-      .accent {
-        color: var(--accent);
-      }
-    </style>
+    <title>veronica zhang — home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <main>
-      <h1>Veronica Zhang</h1>
-      <p>
-        Personal portfolio — art, baking, itineraries, and projects.
-        <span class="accent">Coming soon.</span>
-      </p>
-    </main>
+    <div class="page page--home">
+      <aside class="receipt" aria-label="Store receipt navigation">
+        <img
+          class="receipt__outline"
+          src="assets/RECEIPT/receipt-outline.svg"
+          alt=""
+          width="435"
+          height="2000"
+        />
+        <div class="receipt__body">
+          <h1 class="receipt__brand">
+            <a href="index.html">Veronica Zhang</a>
+          </h1>
+          <p class="receipt__location">Pittsburgh, PA</p>
+
+          <hr class="receipt__rule" />
+
+          <div class="receipt__date-row">
+            <span>Date</span>
+            <span class="receipt__date-value" id="receipt-date-value"
+              >September 15, 2026</span
+            >
+          </div>
+
+          <hr class="receipt__rule" />
+
+          <nav aria-label="Primary">
+            <ul class="receipt__items">
+              <li class="receipt__item">
+                <a href="about.html"
+                  ><span>About</span><span class="receipt__price">5.24</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="art.html"
+                  ><span>Art</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="bread.html"
+                  ><span>Bread</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="postcards.html"
+                  ><span>Postcards</span
+                  ><span class="receipt__price">4.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="projects.html"
+                  ><span>Projects</span
+                  ><span class="receipt__price">20.26</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="receipt__footer">
+            <hr class="receipt__rule" />
+
+            <p class="receipt__summary-label">
+              <span>Item count</span
+              ><span class="receipt__summary-price">5</span>
+            </p>
+            <p class="receipt__summary-label">
+              <span>Total</span
+              ><span class="receipt__summary-price">$30.35</span>
+            </p>
+
+            <img
+              class="receipt__barcode"
+              src="assets/RECEIPT/barcode.svg"
+              alt=""
+              width="232"
+              height="110"
+            />
+            <p class="receipt__thanks">Thank you • come again</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="table" aria-label="Portfolio placeholders">
+        <!-- RIGHT SIDE COMPONENTS -->
+        <a
+          class="table__item table__item--about"
+          href="about.html"
+          aria-label="About"
+        >
+          <span class="table__doodle" aria-hidden="true">
+            <img
+              src="assets/HOME/home-tomato-about.svg"
+              alt=""
+              width="700"
+              height="656"
+            />
+          </span>
+          <img
+            class="table__tag"
+            src="assets/HOME/home-tag-about.png"
+            alt=""
+            width="694"
+            height="400"
+          />
+        </a>
+
+        <a
+          class="table__item table__item--projects"
+          href="projects.html"
+          aria-label="Projects"
+        >
+          <span class="table__doodle" aria-hidden="true">
+            <img
+              src="assets/HOME/home-list-projects.svg"
+              alt=""
+              width="704"
+              height="1074"
+            />
+          </span>
+          <img
+            class="table__tag"
+            src="assets/HOME/home-tag-projects.png"
+            alt=""
+            width="694"
+            height="400"
+          />
+        </a>
+
+        <a
+          class="table__item table__item--postcards"
+          href="postcards.html"
+          aria-label="Postcards"
+        >
+          <span class="table__doodle" aria-hidden="true">
+            <img
+              src="assets/HOME/home-sardines-postcards.svg"
+              alt=""
+              width="756"
+              height="496"
+            />
+          </span>
+          <img
+            class="table__tag"
+            src="assets/HOME/home-tag-postcards.png"
+            alt=""
+            width="694"
+            height="400"
+          />
+        </a>
+
+        <a
+          class="table__item table__item--art"
+          href="art.html"
+          aria-label="Art"
+        >
+          <span class="table__doodle" aria-hidden="true">
+            <img
+              src="assets/HOME/home-palette-art.svg"
+              alt=""
+              width="1734"
+              height="1328"
+            />
+          </span>
+          <img
+            class="table__tag"
+            src="assets/HOME/home-tag-art.png"
+            alt=""
+            width="694"
+            height="400"
+          />
+        </a>
+
+        <a
+          class="table__item table__item--bread"
+          href="bread.html"
+          aria-label="Bread"
+        >
+          <span class="table__doodle" aria-hidden="true">
+            <img
+              src="assets/HOME/home-baguette-bread.svg"
+              alt=""
+              width="1216"
+              height="804"
+            />
+          </span>
+          <img
+            class="table__tag"
+            src="assets/HOME/home-tag-bread.png"
+            alt=""
+            width="694"
+            height="400"
+          />
+        </a>
+      </main>
+    </div>
+    <script src="js/receipt.js"></script>
   </body>
 </html>

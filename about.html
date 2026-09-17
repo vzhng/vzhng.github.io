@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>veronica zhang — about</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page page--about">
+      <aside class="receipt" aria-label="Store receipt navigation">
+        <img
+          class="receipt__outline"
+          src="assets/RECEIPT/receipt-outline.svg"
+          alt=""
+          width="435"
+          height="1076"
+        />
+        <div class="receipt__body">
+          <h1 class="receipt__brand">
+            <a href="index.html">Veronica Zhang</a>
+          </h1>
+          <p class="receipt__location">Pittsburgh, PA</p>
+
+          <hr class="receipt__rule" />
+
+          <div class="receipt__date-row">
+            <span>Date</span>
+            <span class="receipt__date-value" id="receipt-date-value"
+              >September 15, 2026</span
+            >
+          </div>
+
+          <hr class="receipt__rule" />
+
+          <nav aria-label="Primary">
+            <ul class="receipt__items">
+              <li class="receipt__item is-active">
+                <a href="about.html" aria-current="page"
+                  ><span>About</span><span class="receipt__price">5.24</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="art.html"
+                  ><span>Art</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="bread.html"
+                  ><span>Bread</span><span class="receipt__price">3.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="postcards.html"
+                  ><span>Postcards</span
+                  ><span class="receipt__price">4.00</span></a
+                >
+              </li>
+              <li class="receipt__item">
+                <a href="projects.html"
+                  ><span>Projects</span
+                  ><span class="receipt__price">20.26</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="receipt__footer">
+            <hr class="receipt__rule" />
+            <p class="receipt__summary-label">Item count</p>
+            <p class="receipt__summary-label">Total</p>
+            <img
+              class="receipt__barcode"
+              src="assets/RECEIPT/barcode.svg"
+              alt=""
+              width="232"
+              height="110"
+            />
+            <p class="receipt__thanks">Thank you • come again</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="stage stage--about" aria-label="About — fridge">
+        <div class="fridge">
+          <!-- Profile polaroid -->
+          <div class="fridge__polaroid" data-node-id="14:347">
+            <img
+              class="fridge__polaroid-img"
+              src="assets/ABOUT/about-polaroid.jpg"
+              alt="Graduation polaroid"
+              width="846"
+              height="1024"
+            />
+          </div>
+
+          <!-- Magnet / app icon links -->
+          <a
+            class="fridge__magnet fridge__magnet--email"
+            href="mailto:vz.usc2021@gmail.com"
+            aria-label="Email"
+            data-node-id="8:306"
+          >
+            <img
+              src="assets/ABOUT/about-email.svg"
+              alt=""
+              width="156"
+              height="184"
+            />
+          </a>
+
+          <a
+            class="fridge__magnet fridge__magnet--spotify"
+            href="https://open.spotify.com/user/kikyo07"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+            data-node-id="8:307"
+          >
+            <img
+              src="assets/ABOUT/about-spotify.svg"
+              alt=""
+              width="134"
+              height="131"
+            />
+          </a>
+
+          <a
+            class="fridge__magnet fridge__magnet--instagram"
+            href="https://www.instagram.com/vernizvore/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram @vernizvore"
+            data-node-id="11:328"
+          >
+            <img
+              src="assets/ABOUT/about-instagram.svg"
+              alt=""
+              width="123"
+              height="118"
+            />
+          </a>
+
+          <a
+            class="fridge__magnet fridge__magnet--github"
+            href="https://github.com/vzhng"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub vzhng"
+            data-node-id="9:312"
+          >
+            <img
+              src="assets/ABOUT/about-github.svg"
+              alt=""
+              width="135"
+              height="134"
+            />
+          </a>
+
+          <!-- Resume PDF link — href to be set when PDF is ready -->
+          <a
+            class="fridge__magnet fridge__magnet--resume"
+            id="resume-link"
+            href="#"
+            aria-label="Resume (PDF coming soon)"
+            title="Resume PDF coming soon"
+            data-node-id="9:314"
+          >
+            <img
+              src="assets/ABOUT/about-resume.svg"
+              alt=""
+              width="548"
+              height="188"
+            />
+          </a>
+
+          <!-- Photo pile stuffed under the whiteboard -->
+          <div
+            class="fridge__photos"
+            data-photo-stack
+            aria-label="Photo pile"
+          >
+            <button
+              type="button"
+              class="fridge__photo"
+              aria-label="Beach photo"
+            >
+              <img
+                src="assets/ABOUT/about-photo-star.jpg"
+                alt="Star formation at West Palm Beach."
+                width="1024"
+                height="768"
+              />
+            </button>
+            <button
+              type="button"
+              class="fridge__photo"
+              aria-label="Paris photo"
+            >
+              <img
+                src="assets/ABOUT/about-photo-paris.jpg"
+                alt="At the Notre Dame, Paris."
+                width="1024"
+                height="768"
+              />
+            </button>
+            <button
+              type="button"
+              class="fridge__photo"
+              aria-label="Japan photo"
+            >
+              <img
+                src="assets/ABOUT/about-photo-japan.jpg"
+                alt="With my sister in Nagoya, Japan."
+                width="1024"
+                height="768"
+              />
+            </button>
+          </div>
+
+          <!-- Whiteboard intro (sits on top of the photo pile) -->
+          <section
+            class="fridge__whiteboard"
+            data-node-id="11:330"
+            aria-label="Introduction"
+          >
+            <img
+              class="fridge__whiteboard-img"
+              src=""
+              alt=""
+              width="618"
+              height="756"
+            />
+            <div class="fridge__whiteboard-board">
+              <p class="fridge__whiteboard-text">
+                Hi!<br />
+                Currently a software engineer at Abercrombie &amp; Fitch Co.,
+              </p>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="js/receipt.js"></script>
+    <script src="js/fridge-photos.js" defer></script>
+  </body>
+</html>
