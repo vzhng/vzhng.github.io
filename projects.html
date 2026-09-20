@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="page">
+    <div class="page page--projects">
       <aside class="receipt" aria-label="Store receipt navigation">
         <img
           class="receipt__outline"
@@ -58,12 +58,14 @@
               </li>
               <li class="receipt__item">
                 <a href="postcards.html"
-                  ><span>Postcards</span><span class="receipt__price">4.00</span></a
+                  ><span>Postcards</span
+                  ><span class="receipt__price">4.00</span></a
                 >
               </li>
               <li class="receipt__item is-active">
                 <a href="projects.html" aria-current="page"
-                  ><span>Projects</span><span class="receipt__price">20.26</span></a
+                  ><span>Projects</span
+                  ><span class="receipt__price">20.26</span></a
                 >
               </li>
             </ul>
@@ -85,13 +87,186 @@
         </div>
       </aside>
 
-      <main class="stage stage--blank">
-        <div class="blank-card">
-          <h1>Projects</h1>
-          <p>Gallery aisle empty — coming soon.</p>
+      <main class="stage stage--projects" aria-label="Projects — cereal aisle">
+        <div class="aisle">
+          <div class="aisle__shelf aisle__shelf--top">
+            <div class="aisle__row">
+              <div class="aisle__box aisle__box--fruitloops" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-fruitloops.svg"
+                  alt=""
+                  width="749"
+                  height="900"
+                />
+              </div>
+
+              <button
+                type="button"
+                class="aisle__box aisle__box--portfolio"
+                data-projects-portfolio
+                aria-label="Open Portfolio Website project"
+                aria-haspopup="dialog"
+                aria-controls="project-panel"
+              >
+                <img
+                  class="aisle__img aisle__img--front"
+                  src="assets/PROJECTS/projects-portfolio.svg"
+                  alt="Portfolio Website cereal box"
+                  width="746"
+                  height="900"
+                  data-front-src="assets/PROJECTS/projects-portfolio.svg"
+                  data-side-src="assets/PROJECTS/projects-portfolio-side.svg"
+                />
+              </button>
+
+              <div class="aisle__box aisle__box--comingsoon" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-comingsoon.svg"
+                  alt=""
+                  width="749"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--kellog" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-kellog.svg"
+                  alt=""
+                  width="695"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--cornflakes" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-cornflakes.svg"
+                  alt=""
+                  width="693"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--frostedflakes" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-frostedflakes.svg"
+                  alt=""
+                  width="696"
+                  height="900"
+                />
+              </div>
+            </div>
+            <div class="aisle__ledge" aria-hidden="true"></div>
+          </div>
+
+          <div class="aisle__shelf aisle__shelf--bottom">
+            <div class="aisle__row">
+              <div class="aisle__box aisle__box--frostedflakes" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-frostedflakes.svg"
+                  alt=""
+                  width="696"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--toast" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-toast.svg"
+                  alt=""
+                  width="693"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--cheerio" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-cheerio.svg"
+                  alt=""
+                  width="693"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--cookie" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-cookie.svg"
+                  alt=""
+                  width="747"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--fiber" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-fiber.svg"
+                  alt=""
+                  width="749"
+                  height="900"
+                />
+              </div>
+
+              <div class="aisle__box aisle__box--fruitloops" aria-hidden="true">
+                <img
+                  class="aisle__img"
+                  src="assets/PROJECTS/projects-fruitloops.svg"
+                  alt=""
+                  width="749"
+                  height="900"
+                />
+              </div>
+            </div>
+            <div class="aisle__ledge" aria-hidden="true"></div>
+          </div>
         </div>
       </main>
     </div>
+
+    <div
+      class="project-panel-backdrop"
+      data-project-backdrop
+      hidden
+      aria-hidden="true"
+    ></div>
+
+    <aside
+      id="project-panel"
+      class="project-panel"
+      data-project-panel
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-panel-title"
+    >
+      <button
+        type="button"
+        class="project-panel__close"
+        data-project-close
+        aria-label="Close project details"
+      >
+        Close
+      </button>
+      <div class="project-panel__body">
+        <p class="project-panel__eyebrow">Projects</p>
+        <h2 id="project-panel-title" class="project-panel__title">
+          Portfolio Website
+        </h2>
+        <p class="project-panel__copy">
+          How I created this website design — coming soon.
+        </p>
+      </div>
+    </aside>
+
     <script src="js/receipt.js"></script>
+    <script src="js/projects-aisle.js"></script>
   </body>
 </html>

@@ -13,77 +13,94 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="page">
-      <aside class="receipt" aria-label="Store receipt navigation">
-        <img
-          class="receipt__outline"
-          src="assets/RECEIPT/receipt-outline.svg"
-          alt=""
-          width="435"
-          height="1076"
-        />
-        <div class="receipt__body">
-          <h1 class="receipt__brand">
-            <a href="index.html">Veronica Zhang</a>
-          </h1>
-          <p class="receipt__location">Pittsburgh, PA</p>
+    <div class="page page--art">
+      <div class="art-rail">
+        <aside class="receipt" aria-label="Store receipt navigation">
+          <img
+            class="receipt__outline"
+            src="assets/RECEIPT/receipt-outline.svg"
+            alt=""
+            width="435"
+            height="1076"
+          />
+          <div class="receipt__body">
+            <h1 class="receipt__brand">
+              <a href="index.html">Veronica Zhang</a>
+            </h1>
+            <p class="receipt__location">Pittsburgh, PA</p>
 
-          <hr class="receipt__rule" />
-
-          <div class="receipt__date-row">
-            <span>Date</span>
-            <span class="receipt__date-value" id="receipt-date-value"
-              >September 15, 2026</span
-            >
-          </div>
-
-          <hr class="receipt__rule" />
-
-          <nav aria-label="Primary">
-            <ul class="receipt__items">
-              <li class="receipt__item">
-                <a href="about.html"
-                  ><span>About</span><span class="receipt__price">5.24</span></a
-                >
-              </li>
-              <li class="receipt__item is-active">
-                <a href="art.html" aria-current="page"
-                  ><span>Art</span><span class="receipt__price">3.00</span></a
-                >
-              </li>
-              <li class="receipt__item">
-                <a href="bread.html"
-                  ><span>Bread</span><span class="receipt__price">3.00</span></a
-                >
-              </li>
-              <li class="receipt__item">
-                <a href="postcards.html"
-                  ><span>Postcards</span><span class="receipt__price">4.00</span></a
-                >
-              </li>
-              <li class="receipt__item">
-                <a href="projects.html"
-                  ><span>Projects</span><span class="receipt__price">20.26</span></a
-                >
-              </li>
-            </ul>
-          </nav>
-
-          <div class="receipt__footer">
             <hr class="receipt__rule" />
-            <p class="receipt__summary-label">Item count</p>
-            <p class="receipt__summary-label">Total</p>
-            <img
-              class="receipt__barcode"
-              src="assets/ART/barcode.svg"
-              alt=""
-              width="232"
-              height="110"
-            />
-            <p class="receipt__thanks">Thank you • come again</p>
+
+            <div class="receipt__date-row">
+              <span>Date</span>
+              <span class="receipt__date-value" id="receipt-date-value"
+                >September 15, 2026</span
+              >
+            </div>
+
+            <hr class="receipt__rule" />
+
+            <nav aria-label="Primary">
+              <ul class="receipt__items">
+                <li class="receipt__item">
+                  <a href="about.html"
+                    ><span>About</span><span class="receipt__price">5.24</span></a
+                  >
+                </li>
+                <li class="receipt__item is-active">
+                  <a href="art.html" aria-current="page"
+                    ><span>Art</span><span class="receipt__price">3.00</span></a
+                  >
+                </li>
+                <li class="receipt__item">
+                  <a href="bread.html"
+                    ><span>Bread</span><span class="receipt__price">3.00</span></a
+                  >
+                </li>
+                <li class="receipt__item">
+                  <a href="postcards.html"
+                    ><span>Postcards</span><span class="receipt__price">4.00</span></a
+                  >
+                </li>
+                <li class="receipt__item">
+                  <a href="projects.html"
+                    ><span>Projects</span><span class="receipt__price">20.26</span></a
+                  >
+                </li>
+              </ul>
+            </nav>
+
+            <div class="receipt__footer">
+              <hr class="receipt__rule" />
+              <p class="receipt__summary-label">Item count</p>
+              <p class="receipt__summary-label">Total</p>
+              <img
+                class="receipt__barcode"
+                src="assets/RECEIPT/barcode.svg"
+                alt=""
+                width="232"
+                height="110"
+              />
+              <p class="receipt__thanks">Thank you • come again</p>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
+
+        <a
+          class="art-ig"
+          href="http://instagram.com/aiyivii"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram @aiyivii"
+        >
+          <img
+            src="assets/ART/art-aiyivii.png"
+            alt="@aiyivii on Instagram"
+            width="332"
+            height="276"
+          />
+        </a>
+      </div>
 
       <main class="stage stage--art" aria-label="Art gallery">
         <div class="art-gallery">

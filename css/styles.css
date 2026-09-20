@@ -423,10 +423,49 @@ a {
 }
 
 /* —— ART: GALLERY —— */
+.page--art .art-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.page--art .art-rail .receipt {
+  align-self: stretch;
+  width: auto;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.art-ig {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(11.5rem, 90%);
+  margin: -2rem auto 1rem;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  animation: art-gallery-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.art-ig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.12));
+}
+
+.art-ig:hover,
+.art-ig:focus-visible {
+  transform: rotate(-3deg) scale(1.04);
+  outline: none;
+  filter: brightness(1.02);
+}
+
 .stage--art {
   justify-content: center;
   align-items: center;
-  padding: clamp(1.25rem, 3vw, 0.5rem);
+  padding: clamp(1.2rem, 3vw, 0.5rem);
 }
 
 .art-gallery {
@@ -718,6 +757,22 @@ body.is-lightbox-open {
     grid-template-columns: 1fr;
   }
 
+  .page--art .art-rail {
+    align-items: center;
+    width: min(18rem, 92vw);
+    margin: 0 auto;
+  }
+
+  .page--art .art-rail .receipt {
+    margin: 1rem 0 0;
+    width: 100%;
+  }
+
+  .art-ig {
+    width: min(11.5rem, 88%);
+    margin: -1.5rem auto 1rem;
+  }
+
   .receipt {
     margin: 1rem auto 0;
     width: min(18rem, 92vw);
@@ -725,6 +780,14 @@ body.is-lightbox-open {
 
   .stage--about {
     min-height: 70vh;
+  }
+
+  .about-kenya-magnet {
+    left: 50%;
+    bottom: auto;
+    top: calc(var(--receipt-width, 17.5rem) + 4rem);
+    width: clamp(4rem, 18vw, 6rem);
+    transform: translateX(-120%) rotate(-14deg);
   }
 
   .table {
@@ -771,6 +834,7 @@ body.is-lightbox-open {
 
 /* —— ABOUT: FRIDGE THEME —— */
 .page--about {
+  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   background: url("../assets/ABOUT/about-fridge-background.png") center / cover
@@ -822,13 +886,13 @@ body.is-lightbox-open {
   filter: drop-shadow(4px 8px 18px rgba(0, 0, 0, 0.18));
 }
 
-.fridge__polaroid:hover,
-.fridge__polaroid:focus-visible {
-  transform: rotate(5deg) scale(1.03);
-  filter: brightness(0.95);
-  outline: none;
-  transform-origin: center center;
-}
+/*.fridge__polaroid:hover,*/
+/*.fridge__polaroid:focus-visible {*/
+/*  transform: rotate(5deg) scale(1.03);*/
+/*  filter: brightness(0.95);*/
+/*  outline: none;*/
+/*  transform-origin: center center;*/
+/*}*/
 
 .fridge__magnet {
   position: absolute;
@@ -855,37 +919,88 @@ body.is-lightbox-open {
 }
 
 .fridge__magnet--email {
-  left: 37.6%;
-  top: 10.3%;
-  width: 8.3%;
+  left: 35.6%;
+  top: 7%;
+  width: 9%;
   aspect-ratio: 156 / 184;
 }
 
 .fridge__magnet--spotify {
   left: 47.8%;
-  top: 24.6%;
-  width: 7%;
+  top: 20%;
+  width: 9%;
   aspect-ratio: 134 / 131;
 }
 
 .fridge__magnet--instagram {
-  left: 40.4%;
-  top: 40.1%;
-  width: 7.1%;
+  left: 38.4%;
+  top: 30%;
+  width: 9%;
+  transform: rotate(8deg);
   aspect-ratio: 123 / 118;
 }
 
 .fridge__magnet--github {
-  left: 47.8%;
-  top: 57%;
-  width: 7%;
+  left: 46.8%;
+  top: 43%;
+  width: 9%;
   aspect-ratio: 135 / 134;
 }
 
+.fridge__magnet--paris {
+  left: -2%;
+  top: 0.1%;
+  width: 17%;
+  aspect-ratio: 262 / 264;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fridge__magnet--amsterdam {
+  left: 1.5%;
+  top: 66%;
+  width: 15%;
+  aspect-ratio: 207 / 291;
+  z-index: 2;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+.fridge__magnet--taiwan {
+  left: 51%;
+  top: 73%;
+  width: 12%;
+  aspect-ratio: 198 / 281;
+  z-index: 2;
+  transform: rotate(6deg);
+  pointer-events: none;
+}
+
+.about-kenya-magnet {
+  position: absolute;
+  left: 5%;
+  bottom: 15%;
+  z-index: 5;
+  /*width: clamp(4.5rem, 8.5vw, 7.25rem);*/
+  width: 12%;
+
+  aspect-ratio: 246 / 286;
+  pointer-events: none;
+  transform: rotate(-14deg);
+  filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.25));
+}
+
+.about-kenya-magnet img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .fridge__magnet--resume {
-  left: 23.1%;
-  top: 73.8%;
-  width: 30.4%;
+  left: 20.1%;
+  top: 60.8%;
+  width: 36%;
   aspect-ratio: 548 / 188;
 }
 
@@ -899,7 +1014,7 @@ body.is-lightbox-open {
   left: 58.9%;
   top: 3%;
   width: 38.1%;
-  aspect-ratio: 618 / 756;
+  aspect-ratio: 629 / 759;
   z-index: 2;
 }
 
@@ -1120,7 +1235,7 @@ body.is-lightbox-open {
 }
 
 .bakery__item--babka {
-  left: .33%;
+  left: 15%;
   top: 58.26%;
   width: 27.35%;
   height: 25.89%;
@@ -1135,8 +1250,313 @@ body.is-lightbox-open {
   animation-delay: 0.24s;
 }
 
+/* Vertical baguette — right of bolo bao + apple tart */
+.bakery__item--baguette {
+  left: 81.5%;
+  top: 10%;
+  width: 12%;
+  height: 75%;
+  animation-delay: 0.3s;
+}
+
 @media (max-width: 700px) {
   .bakery {
     width: min(100%, calc((100dvh - 2 * var(--bakery-pad)) * 998 / 645));
+  }
+}
+
+/* —— PROJECTS: cereal aisle —— */
+.page--projects {
+  background: var(--page);
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden; /* no page scroll; crop right-edge boxes */
+}
+
+.stage--projects {
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+  height: 100%;
+  max-height: 100dvh;
+  /* Top pad > mid shelf-gap; keep compact so both shelves fit */
+  --aisle-pad-top: clamp(1.75rem, 4.5vh, 3rem);
+  --aisle-pad-bottom: clamp(0.7rem, 1.75vh, 1.25rem);
+  padding: var(--aisle-pad-top) 0 var(--aisle-pad-bottom);
+  overflow: visible; /* allow first boxes under the receipt */
+}
+
+.aisle {
+  --box-gap: clamp(0.4rem, 0.9vw, 0.75rem);
+  --ledge-h: clamp(0.55rem, 1vw, 0.85rem);
+  --ledge-draw: calc(2.3 * var(--ledge-h));
+  /* Mid gap smaller than space above the top shelf */
+  --shelf-gap: clamp(1rem, 2.4vh, 1.75rem);
+  /*
+    Shift rows left under the receipt.
+    More negative = further left. Tweak --aisle-shift to taste.
+  */
+  --aisle-shift: calc(-1 * var(--receipt-width) + 0.65rem);
+  /*
+    Box size knob — lower divisor → bigger boxes (more edge cutoff).
+    Try ~4.2–4.8. Page overflow:hidden clips anything past the viewport.
+  */
+  --box-w: calc(
+    (100vw - 0.05 * var(--receipt-width) - 5 * var(--box-gap)) / 5.5
+  );
+  --box-h-max: calc(var(--box-w) * 900 / 693);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--shelf-gap);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  animation: aisle-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes aisle-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aisle__shelf {
+  position: relative;
+  width: 100%;
+  padding: 0 0 calc(var(--ledge-h) + 0.15rem);
+  min-height: calc(var(--box-h-max) + var(--ledge-h));
+  overflow: visible;
+}
+
+.aisle__row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--box-gap);
+  margin-left: var(--aisle-shift);
+  width: max-content;
+  min-height: var(--box-h-max);
+}
+
+/* Full-bleed shelf ledge under receipt → right edge */
+.aisle__ledge {
+  position: absolute;
+  bottom: 0;
+  left: calc(-1 * var(--receipt-width));
+  width: 100vw;
+  height: var(--ledge-draw);
+  background: #cfcfcf;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aisle__box {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: block;
+  width: var(--box-w);
+  /* default mid aspect; modifiers override --ar-w */
+  height: calc(var(--box-w) * 900 / var(--ar-w, 746));
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+}
+
+/* Natural proportions from each SVG viewBox (equal width → relative heights) */
+.aisle__box--fruitloops {
+  --ar-w: 749;
+}
+.aisle__box--portfolio {
+  --ar-w: 746;
+  cursor: pointer;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.aisle__box--comingsoon {
+  --ar-w: 749;
+}
+.aisle__box--kellog {
+  --ar-w: 695;
+}
+.aisle__box--cornflakes {
+  --ar-w: 693;
+}
+.aisle__box--frostedflakes {
+  --ar-w: 696;
+}
+.aisle__box--toast {
+  --ar-w: 693;
+}
+.aisle__box--cheerio {
+  --ar-w: 693;
+}
+.aisle__box--cookie {
+  --ar-w: 747;
+}
+.aisle__box--fiber {
+  --ar-w: 749;
+}
+
+.aisle__box--portfolio:hover,
+.aisle__box--portfolio:focus-visible {
+  transform: translateY(-0.35rem);
+  outline: none;
+}
+
+.aisle__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.aisle__box--portfolio .aisle__img {
+  transition: opacity 0.2s ease;
+}
+
+/* —— PROJECTS: side window —— */
+body.is-project-panel-open {
+  overflow: hidden;
+}
+
+.project-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.35);
+  animation: project-backdrop-in 0.28s ease both;
+}
+
+.project-panel-backdrop[hidden] {
+  display: none;
+}
+
+@keyframes project-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: min(28rem, 92vw);
+  height: 100%;
+  height: 100dvh;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: #f7f7f5;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
+  animation: project-panel-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-panel[hidden] {
+  display: none;
+}
+
+@keyframes project-panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project-panel__close {
+  align-self: flex-end;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-receipt);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.project-panel__close:hover,
+.project-panel__close:focus-visible {
+  background: rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+.project-panel__body {
+  margin-top: 2rem;
+  max-width: 22rem;
+}
+
+.project-panel__eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--ink-faint);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-panel__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-panel__copy {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .page--projects {
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .stage--projects {
+    height: auto;
+    max-height: none;
+    --aisle-pad-top: 2.25rem;
+    --aisle-pad-bottom: 1.5rem;
+  }
+
+  .aisle {
+    --aisle-shift: -1.25rem;
+    --box-w: calc((100vw + 1.5rem - 5 * var(--box-gap)) / 4.85);
+    --box-h-max: calc(var(--box-w) * 900 / 693);
+    --shelf-gap: 1.5rem;
+    height: auto;
+  }
+
+  .aisle__ledge {
+    left: 0;
+    width: 100%;
   }
 }
